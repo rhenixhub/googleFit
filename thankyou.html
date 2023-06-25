@@ -8,7 +8,7 @@
         var obj = localStorage.getItem("demographicData");
         // use it
         console.log(JSON.parse(obj));
-        alert(JSON.parse(obj));
+       
 function tokenGeneration()
 {
     var tokenString = "client_id=491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com" +
@@ -27,7 +27,7 @@ function tokenGeneration()
                     crossDomain: true,
                     dataType: "json",
                     success: function (responseData, status, jqXHR) {
-                        console.log(responseData);
+                      //  console.log(responseData);
                         var accessToken = responseData.access_token;
                        // document.getElementById('result').textContent = accessToken;
                          console.log(accessToken);
