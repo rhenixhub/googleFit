@@ -29,7 +29,7 @@
 <br>
  <input type="radio" id="googleFit" name="radioFit" value="GoogleFit">
  <label for="googleFit">GoogleFit</label><br>
-  <input type="radio" id="fitBitt" name="radioFit" value="FitBitt">
+  <input type="radio" id="fitBitt" name="radioFit" value="FitBit">
 <label for="fitBitt">FitBitt</label><br>
 
 <br>
@@ -71,9 +71,20 @@
 
 
             // Optionally, you can reset the form after submission
-            document.getElementById("demographicForm").reset();
-
+           
+if(selectedOption == 'GoogleFit')
+{
+     document.getElementById("demographicForm").reset();
             window.location.href = "https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html&prompt=consent&response_type=code&client_id=491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com&scope=https://www.googleapis.com/auth/fitness.activity.read+https://www.googleapis.com/auth/fitness.blood_pressure.read+https://www.googleapis.com/auth/fitness.body.read+https://www.googleapis.com/auth/fitness.oxygen_saturation.read+https://www.googleapis.com/auth/fitness.reproductive_health.read+https://www.googleapis.com/auth/fitness.sleep.read+https://www.googleapis.com/auth/fitness.blood_glucose.read+https://www.googleapis.com/auth/fitness.body_temperature.read+https://www.googleapis.com/auth/fitness.location.read+https://www.googleapis.com/auth/fitness.heart_rate.read+https://www.googleapis.com/auth/fitness.nutrition.read";
+        }
+        else if (selectedOption == 'FitBit')
+        {
+ document.getElementById("demographicForm").reset();
+        }
+        else
+        {
+alert('Please Select Radio button Option');
+        }
 
         });
     </script>
