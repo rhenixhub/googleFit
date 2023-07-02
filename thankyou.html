@@ -9,12 +9,14 @@
         // use it
         console.log(JSON.parse(obj));
 
-        const urlParams = new URLSearchParams(location.search);
+        
+function tokenGeneration()
+{
+    const urlParams = new URLSearchParams(location.search);
       string codeParam = params.get('code'); 
       console.log('Code:');
       console.log(codeParam);
-function tokenGeneration()
-{
+    
     var tokenString = "client_id=491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com" +
                     "&client_secret=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" +
                     "&redirect_uri=https://cure.science/login/redirectapp" +
