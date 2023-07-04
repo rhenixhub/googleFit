@@ -25,7 +25,7 @@ function tokenGeneration()
 
         var refreshtokenString = "code="+codeParam+"&client_id=491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com&client_secret=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&redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html&grant_type=authorization_code";
 
-        console.log(refreshtokenString);
+      //  console.log(refreshtokenString);
         
     getData(refreshtokenString);             
 }
@@ -39,9 +39,9 @@ function tokenGeneration()
                     dataType: "json",
                     success: function (responseData, status, jqXHR) {
                     console.log(responseData);
-                        //var accessToken = responseData.access_token;
+                        var accessToken = responseData.access_token;
                        // document.getElementById('result').textContent = accessToken;
-                         //console.log(accessToken);
+                        // console.log(accessToken);
                     },
                     error: function (jqXHR, status) {
                         console.log(jqXHR);
