@@ -49,18 +49,14 @@ body{
 </style>
     
     <script>
-        
+     console= console(log_path=False);   
         
         // retrieve it back from storage 
         var obj = localStorage.getItem("demographicData");
         // use it
         console.dir(JSON.parse(obj));
 
-    console.log = function() {
-    var args = Array.prototype.slice.call(arguments);
-    args.unshift('');
-    Function.prototype.apply.call(console.log, console, args);
-};    
+   
 function tokenGeneration()
 {
     const urlParams = new URLSearchParams(location.search);
