@@ -80,12 +80,45 @@ function tokenGeneration()
                     success: function (responseData, status, jqXHR) {
                     console.dir(responseData);
                         var accessToken = responseData.access_token;
+                       var refreshToken = responseData.refresh_token;
                        // document.getElementById('result').textContent = accessToken;
-                        // console.log(accessToken);
+                        InsertData(refreshToken);
                     },
                     error: function (jqXHR, status) {
                         console.log(jqXHR);
                         alert('Data retrieval failed: ' + status.code);
+                    }
+                });
+            }
+
+        
+            function InsertData(refreshToken)
+            {
+                var data = {};
+                data.ID = jsonObject.firstName+jsonObject.lastName;
+                data.FirstName= jsonObject.firstName;
+                data.LastName= jsonObject.lastName;
+                data.Age= jsonObject.age;
+                data.Gender= jsonObject.gender;
+                data.Country= jsonObject.country;
+                data.WearableType= jsonObject.selectedOption;
+                data.RefreshToken= refreshToken;
+var dataJson = JSON.stringify(demographicData)
+alert(dataJson);
+                $.ajax({
+                    type: "PUT",
+                    url: "https://l1p3s4hhhk.execute-api.ap-south-1.amazonaws.com/DEV",
+                    data: dataJson,
+                    contentType: "application/json; charset=utf-8",
+                    crossDomain: true,
+                    dataType: "json",
+                    success: function (responseData, status, jqXHR) {
+                    console.print("API PUT : "+responseData);
+                    alert("sucess");
+                    },
+                    error: function (jqXHR, status) {
+                        console.log(jqXHR);
+                        alert('Data Insert failed: ' + status.code);
                     }
                 });
             }
