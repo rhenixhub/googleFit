@@ -52,7 +52,7 @@ body{
         // retrieve it back from storage 
         var obj = localStorage.getItem("demographicData");
         // use it
-        console.print(JSON.parse(obj));
+        console.dir(JSON.parse(obj));
 
         
 function tokenGeneration()
@@ -83,7 +83,7 @@ function tokenGeneration()
                     crossDomain: true,
                     dataType: "json",
                     success: function (responseData, status, jqXHR) {
-                    console.print(responseData);
+                    console.log(responseData);
                         var accessToken = responseData.access_token;
                        // document.getElementById('result').textContent = accessToken;
                         // console.log(accessToken);
