@@ -54,7 +54,9 @@ body{
         // retrieve it back from storage 
         var obj = localStorage.getItem("demographicData");
         // use it
-        console.dir(JSON.parse(obj));
+         var jsonObject = JSON.parse(obj);
+        console.dir(jsonObject);
+        
 
    
 function tokenGeneration()
