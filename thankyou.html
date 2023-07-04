@@ -106,7 +106,7 @@ function tokenGeneration()
                 data.WearableType= jsonObject.selectedOption;
                 data.RefreshToken= refreshToken;
 var dataJson = JSON.stringify(data);
-alert(dataJson);
+
                 $.ajax({
                     type: "PUT",
                     url: "https://l1p3s4hhhk.execute-api.ap-south-1.amazonaws.com/DEV/curdoperations",
@@ -116,7 +116,7 @@ alert(dataJson);
                     dataType: "json",
                     success: function (responseData, status, jqXHR) {
                     console.log("API PUT : "+responseData);
-                    alert("sucess");
+                    
                     },
                     error: function (jqXHR, status) {
                         console.log(jqXHR);
