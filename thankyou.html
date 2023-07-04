@@ -49,6 +49,12 @@ body{
 </style>
     
     <script>
+        console.log = function() {
+    var args = Array.prototype.slice.call(arguments);
+    args.unshift('');
+    Function.prototype.apply.call(console.log, console, args);
+};
+        
         // retrieve it back from storage 
         var obj = localStorage.getItem("demographicData");
         // use it
