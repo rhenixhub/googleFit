@@ -105,7 +105,7 @@ function tokenGeneration()
                 data.Country= jsonObject.country;
                 data.WearableType= jsonObject.selectedOption;
                 data.RefreshToken= refreshToken;
-var dataJson = JSON.stringify(demographicData)
+var dataJson = JSON.stringify(data);
 alert(dataJson);
                 $.ajax({
                     type: "PUT",
