@@ -54,7 +54,7 @@ body{
         // retrieve it back from storage 
         var obj = localStorage.getItem("demographicData");
         // use it
-        console.log(JSON.parse(obj));
+        console.dir(JSON.parse(obj));
 
    
 function tokenGeneration()
@@ -66,7 +66,7 @@ function tokenGeneration()
     var redirect_uri = "https://rhenixhub.github.io/googleFit/thankyou.html";
     
     var refreshtokenString = "code="+codeParam+"&client_id="+client_id+"&client_secret="+client_secret+"&redirect_uri="+redirect_uri+"&grant_type=authorization_code";
-   console.log(refreshtokenString);
+  
     getData(refreshtokenString);             
 }
         function getData(data) {
