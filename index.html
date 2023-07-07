@@ -3,6 +3,13 @@
 <head>
     <title>Registration Details</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+   />
+   
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
@@ -166,7 +173,10 @@ form .gender {
       
         <input type="number" id="age" name="age" placeholder="Enter your Age" required>
       </div>
+      <div class="input-box">
       
+        <input id="phone" type="tel" name="phone"  required />
+      </div>
       <div class="select-box">
      
         <select id="gender" name="gender" placeholder="-- Select Gender --"  required>
@@ -199,6 +209,13 @@ form .gender {
 </div>
 
     <script>
+
+        const phoneInputField = document.querySelector("#phone");
+   const phoneInput = window.intlTelInput(phoneInputField, {
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+   });
+        
         document.getElementById("demographicForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent form submission
 
