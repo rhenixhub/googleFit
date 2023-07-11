@@ -229,6 +229,9 @@ form .gender {
             
             var selectedOption = $("input:radio[name=radioFit]:checked").val()
 
+            
+             var timeStamp = new Date().toISOString();
+           
             // Create an object with the form values
             var demographicData = {};
                 demographicData.firstName= firstName;
@@ -236,6 +239,8 @@ form .gender {
                 demographicData.age= age;
                 demographicData.gender= gender;
                 demographicData.email= email;
+                 demographicData.phone= phone;
+                 demographicData.timestamp = timeStamp;
                 demographicData.selectedOption= selectedOption;
             
 
