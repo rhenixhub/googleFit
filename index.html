@@ -193,7 +193,7 @@ form .user-details .input-box{
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form action="#">
+      <form id="registrationForm" action="#">
         <div class="user-details">
           <div class="input-box">
             <span class="details">First Name</span>
@@ -235,11 +235,11 @@ form .user-details .input-box{
           <div class="category">
             <label for="dot-1">
             <span class="dot one"></span>
-            <span class="gender">Google Fit</span>
+            <span class="gender-title">GoogleFit</span>
           </label>
           <label for="dot-2">
             <span class="dot two"></span>
-            <span class="gender">Fit Bit</span>
+            <span class="gender-title">FitBit</span>
           </label>
           
           </div>
@@ -251,15 +251,14 @@ form .user-details .input-box{
     </div>
   </div>
 
-    <script>
-
-        const phoneInputField = document.querySelector("#phone");
+     <script>
+const phoneInputField = document.querySelector("#phone");
    const phoneInput = window.intlTelInput(phoneInputField, {
      utilsScript:
        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
    });
-        
-        document.getElementById("demographicForm").addEventListener("submit", function(event) {
+
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent form submission
 
             // Get form values
@@ -268,24 +267,23 @@ form .user-details .input-box{
             var age = document.getElementById("age").value;
             var gender = document.getElementById("gender").value;
             var email = document.getElementById("email").value;
- var phone = document.getElementById("phone").value;
+            var phone = document.getElementById("phone").value;
             
-            var selectedOption = $("input:radio[name=radioFit]:checked").val()
+            var selectedOption = $("input:radio[name=radioFit]:checked").val();
 
-            
-             var timeStamp = new Date().toISOString();
+            var timeStamp = new Date().toISOString();
            
             // Create an object with the form values
-            var demographicData = {};
-                demographicData.firstName= firstName;
-                demographicData.lastName= lastName;
-                demographicData.age= age;
-                demographicData.gender= gender;
-                demographicData.email= email;
-                 demographicData.phone= phone;
-                 demographicData.timestamp = timeStamp;
-                demographicData.selectedOption= selectedOption;
-            
+            var demographicData = {
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                gender: gender,
+                email: email,
+                phone: phone,
+                timestamp: timeStamp,
+                selectedOption: selectedOption
+            };
 
             // Print the demographic data in JSON format in the console
             console.log(JSON.stringify(demographicData));
@@ -294,22 +292,18 @@ form .user-details .input-box{
            // document.getElementById('result').innerHTML = JSON.stringify(demographicData);
             localStorage.setItem("demographicData", JSON.stringify(demographicData));
 
-
             // Optionally, you can reset the form after submission
            
-if(selectedOption == 'GoogleFit')
-{
-     document.getElementById("demographicForm").reset();
-         window.location.href = "https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html&prompt=consent&response_type=code&client_id=491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com&scope=https://www.googleapis.com/auth/fitness.activity.read+https://www.googleapis.com/auth/fitness.blood_pressure.read+https://www.googleapis.com/auth/fitness.body.read+https://www.googleapis.com/auth/fitness.oxygen_saturation.read+https://www.googleapis.com/auth/fitness.reproductive_health.read+https://www.googleapis.com/auth/fitness.sleep.read+https://www.googleapis.com/auth/fitness.blood_glucose.read+https://www.googleapis.com/auth/fitness.body_temperature.read+https://www.googleapis.com/auth/fitness.location.read+https://www.googleapis.com/auth/fitness.heart_rate.read+https://www.googleapis.com/auth/fitness.nutrition.read&access_type=offline";
-        }
-        else if (selectedOption == 'FitBit')
-        {
- document.getElementById("demographicForm").reset();
-        }
-        else
-        {
-alert('Please Select radio button option');
-        }
+            if (selectedOption === "GoogleFit") {
+                document.getElementById("registrationForm").reset();
+                window.location.href = "https://accounts.google.com/o/oauth2/auth?client_id=392840555247-cjhn1tne8p8pfefk11lda4l6bg95geml.apps.googleusercontent.com&redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html&response_type=code&scope=https://www.googleapis.com/auth/fitness.activity.read+https://www.googleapis.com/auth/fitness.blood_pressure.read+https://www.googleapis.com/auth/fitness.body.read+https://www.googleapis.com/auth/fitness.oxygen_saturation.read+https://www.googleapis.com/auth/fitness.reproductive_health.read+https://www.googleapis.com/auth/fitness.sleep.read+https://www.googleapis.com/auth/fitness.blood_glucose.read+https://www.googleapis.com/auth/fitness.body_temperature.read+https://www.googleapis.com/auth/fitness.location.read+https://www.googleapis.com/auth/fitness.heart_rate.read+https://www.googleapis.com/auth/fitness.nutrition.read&access_type=offline";
+            } else if (selectedOption === "FitBit") {
+                document.getElementById("registrationForm").reset();
+                // Add the desired redirection URL for FitBit
+                window.location.href = "https://example.com/fitbit";
+            } else {
+                alert('Please select a wearable type.');
+            }
 
         });
     </script>
