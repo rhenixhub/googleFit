@@ -1,216 +1,257 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Registration Details</title>
+  <head>
+     <title>Registration Details</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
    <link
      rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
-   />
-   
-
-    <style type="text/css">
-        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    
+     
+     <style type="text/css">
+       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins',sans-serif;
 }
 body{
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: #4070f4;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
-.wrapper{
-  position: relative;
-  max-width: 430px;
+.container{
+  max-width: 700px;
   width: 100%;
-  background: #fff;
-  padding: 34px;
-  border-radius: 6px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
-.wrapper h2{
- 
-  font-size: 22px;
-  font-weight: 600;
-  color: #333;
-  text-decoration: underline;
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
 }
-.wrapper h2::before{
-  content: '';
+.container .title::before{
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   height: 3px;
-  width: 28px;
-  border-radius: 12px;
-  background: #4070f4;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
-.wrapper form{
-  margin-top: 30px;
+.content form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
 }
-.wrapper form .input-box{
-  height: 52px;
-  margin: 18px 0;
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
 }
-
-.wrapper form .select-box{
-  height: 52px;
-  margin: 18px 0;
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
-form .input-box input{
-  height: 100%;
+.user-details .input-box input{
+  height: 45px;
   width: 100%;
   outline: none;
-  padding: 0 15px;
-  font-size: 17px;
-  font-weight: 400;
-  color: #333;
-  border: 1.5px solid #C7BEBE;
-  border-bottom-width: 2.5px;
-  border-radius: 6px;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
   transition: all 0.3s ease;
 }
-.input-box input:focus,
-.input-box input:valid{
-  border-color: #4070f4;
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #9b59b6;
 }
-form .policy{
-  display: flex;
-  align-items: center;
+
+
+form .user-details .select-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
 }
-form h3{
-  color: #707070;
-  font-size: 14px;
+form .select-box span.details{
+  display: block;
   font-weight: 500;
-  margin-left: 10px;
+  margin-bottom: 5px;
 }
-.input-box.button input{
-  color: #fff;
-  letter-spacing: 1px;
-  border: none;
-  background: #4070f4;
-  cursor: pointer;
-}
-.input-box.button input:hover{
-  background: #0e4bf1;
-}
-form .text h3{
- color: #333;
- width: 100%;
- text-align: center;
-}
-form .text h3 a{
-  color: #4070f4;
-  text-decoration: none;
-}
-form .text h3 a:hover{
-  text-decoration: underline;
-}
-
-form :where(.gender-option, .gender) {
-  display: flex;
-  align-items: center;
-  column-gap: 50px;
-  flex-wrap: wrap;
-}
-form .gender {
-  column-gap: 10px;
-
-}
-.gender input {
-  accent-color: rgb(130, 106, 251);
-}
-.form :where(.gender input, .gender label) {
-  cursor: pointer;
-}
-.gender label {
-  color: #707070;
-}
-.select-box select {
-  height: 100%;
+.user-details .select-box select{
+  height: 45px;
   width: 100%;
-    outline: none;
-     font-size: 17px;
-  font-weight: 400;
-  color: #333;
-  padding: 0 15px;
-  border: 1.5px solid #C7BEBE;
-  border-bottom-width: 2.5px;
-  border-radius: 6px;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
   transition: all 0.3s ease;
-  color: #707070;
-  font-size: 1rem;
 }
+.user-details .select-box select:focus,
+.user-details .select-box select:valid{
+  border-color: #9b59b6;
+}
+ form .gender-details .gender-title{
+  font-size: 16px;
+  font-weight: 500;
+ }
+ form .category{
+   display: flex;
+   width: 40%;
+   margin: 14px 0 ;
+   justify-content: space-evenly;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ #dot-3:checked ~ .category label .three{
+   background: #9b59b6;
+   border-color: #d9d9d9;
+ }
  
-select-box select:focus,
-.select-box select:valid{
-  border-color: #4070f4;
-  color: #333;
+
+ form input[type="radio"]{
+   display: none;
+ }
+ form .button{
+   height: 45px;
+   margin: 35px 0
+ }
+ form .button input{
+   height: 100%;
+   width: 100%;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+ }
+ form .button input:hover{
+  /* transform: scale(0.99); */
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  }
+ @media(max-width: 584px){
+ .container{
+  max-width: 100%;
 }
-    </style>
-</head>
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  }
+  @media(max-width: 459px){
+  .container .content .category{
+    flex-direction: column;
+  }
+}
+     </style>
+
+
+   </head>
 <body>
-
-<div class="wrapper">
-    <h2>Registration</h2>
-    <form id="demographicForm">
-      <div class="input-box">
-       
-         <input type="text" id="firstName" name="firstName" placeholder="Enter your firstname" maxlength="20" autofocus onkeydown="return /[a-z]/i.test(event.key)"   title="Please enter text only" required>
-      </div>
-      <div class="input-box">
-      
-        <input type="text" id="lastName" name="lastName" placeholder="Enter your lastname" maxlength="20" title="Please enter text only" required>
-      </div>
-      <div class="input-box">
-      
-        <input type="number" id="age" name="age" placeholder="Enter your age" maxlength="2" max="99" required>
-      </div>
-
-      
-      <div class="select-box">
-     
-        <select id="gender" name="gender" placeholder="-- Select gender --"  required>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form id="demographicForm">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" id="firstName" name="firstName" placeholder="Enter your firstname" maxlength="20" autofocus onkeydown="return /[a-z]/i.test(event.key)"   title="Please enter text only" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+             <input type="text" id="lastName" name="lastName" placeholder="Enter your lastname" maxlength="20" title="Please enter text only" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Age</span>
+            <input type="number" id="age" name="age" placeholder="Enter your age" maxlength="2" max="99" required>
+          </div>
+          <div class="select-box">
+            <span class="details">Gender</span>
+          <select id="gender" name="gender" placeholder="-- Select gender --"  required>
             <option value="">-- Select Gender --</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
         </select>
-      </div>
-  
-  <div class="input-box">
-      
-        <input id="phone" type="tel" name="phone"  required />
-      </div>
-<div class="input-box">
-       
-        <input type="email" id="email" name="email" placeholder="Enter your email"   required>
-       </div> 
-       <br>
-      <div class="gender">
-        <input type="radio" id="googleFit" name="radioFit" value="GoogleFit" required>
- <label for="googleFit">GoogleFit</label>
-   <input type="radio" id="fitBit" name="radioFit" value="FitBit">
-<label for="fitBit">FitBit</label>
-      </div>
-     
-      <div class="input-box button">
-         <input type="submit" value="Register Now">
-      </div>
-     
-    </form>
-     <div id="result"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            
+              <input id="phone" type="tel" name="phone"  required  style="padding-left:70px; padding-right: 25px;" />
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+             <input type="email" id="email" name="email" placeholder="Enter your email"   required>
+          </div>
+        </div>
+        
+       <div class="gender-details">
+          <input type="radio" name="radioFit" id="dot-1" value="GoogleFit" >
+          <input type="radio" name="radioFit" id="dot-2" value="FitBit" >
+          
+          <span class="gender-title">Wearable Type</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender-title">GoogleFit</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender-title">FitBit</span>
+          </label>
+          
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register Now">
+        </div>
+      </form>
+    </div>
+  </div>
 
-</div>
-   
-    <script>
+     <script>
 
 const phoneInputField = document.querySelector("#phone");
    const phoneInput = window.intlTelInput(phoneInputField, {
@@ -260,7 +301,8 @@ if(selectedOption == 'GoogleFit')
 {
     
      document.getElementById("demographicForm").reset();
-            window.location.href = "https://accounts.google.com/o/oauth2/auth?client_id=392840555247-cjhn1tne8p8pfefk11lda4l6bg95geml.apps.googleusercontent.com&redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html&response_type=code&scope=https://www.googleapis.com/auth/fitness.activity.read+https://www.googleapis.com/auth/fitness.blood_pressure.read+https://www.googleapis.com/auth/fitness.body.read+https://www.googleapis.com/auth/fitness.oxygen_saturation.read+https://www.googleapis.com/auth/fitness.reproductive_health.read+https://www.googleapis.com/auth/fitness.sleep.read+https://www.googleapis.com/auth/fitness.blood_glucose.read+https://www.googleapis.com/auth/fitness.body_temperature.read+https://www.googleapis.com/auth/fitness.location.read+https://www.googleapis.com/auth/fitness.heart_rate.read+https://www.googleapis.com/auth/fitness.nutrition.read&access_type=offline";
+             window.location.href = "https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html&prompt=consent&response_type=code&client_id=491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com&scope=https://www.googleapis.com/auth/fitness.activity.read+https://www.googleapis.com/auth/fitness.blood_pressure.read+https://www.googleapis.com/auth/fitness.body.read+https://www.googleapis.com/auth/fitness.oxygen_saturation.read+https://www.googleapis.com/auth/fitness.reproductive_health.read+https://www.googleapis.com/auth/fitness.sleep.read+https://www.googleapis.com/auth/fitness.blood_glucose.read+https://www.googleapis.com/auth/fitness.body_temperature.read+https://www.googleapis.com/auth/fitness.location.read+https://www.googleapis.com/auth/fitness.heart_rate.read+https://www.googleapis.com/auth/fitness.nutrition.read&access_type=offline";
+       
         }
         else if (selectedOption == 'FitBit')
         {
