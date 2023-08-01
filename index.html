@@ -230,7 +230,7 @@ form .user-details .input-box{
        <div class="gender-details">
           <input type="radio" name="radioFit" id="dot-1" value="GoogleFit" >
           <input type="radio" name="radioFit" id="dot-2" value="FitBit" >
-          
+          <input type="radio" name="radioFit" id="dot-3" value="Polar" >
           <span class="gender-title">Wearable Type</span>
           <div class="category">
             <label for="dot-1">
@@ -241,7 +241,10 @@ form .user-details .input-box{
             <span class="dot two"></span>
             <span class="gender-title">FitBit</span>
           </label>
-          
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender-title">Polar</span>
+          </label>
           </div>
         </div>
         <div class="button">
@@ -307,6 +310,11 @@ if(selectedOption == 'GoogleFit')
         else if (selectedOption == 'FitBit')
         {
  document.getElementById("demographicForm").reset();
+        }
+       else if (selectedOption == 'Polar')
+        {
+ document.getElementById("demographicForm").reset();
+          window.location.href = "https://flow.polar.com/oauth2/authorization?response_type=code&client_id=d18dc3ce-1aba-4dd6-bbeb-0e422cbb4437&redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html";
         }
         else
         {
