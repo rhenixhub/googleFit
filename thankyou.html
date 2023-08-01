@@ -63,13 +63,23 @@ function tokenGeneration()
 {
     const urlParams = new URLSearchParams(location.search);
       var codeParam = urlParams.get('code'); 
-   var client_id = "491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com";
-    var client_secret = "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";
-    var redirect_uri = "https://rhenixhub.github.io/googleFit/thankyou.html";
-    
-    var refreshtokenString = "code="+codeParam+"&client_id="+client_id+"&client_secret="+client_secret+"&redirect_uri="+redirect_uri+"&grant_type=authorization_code";
-  
-    getData(refreshtokenString);             
+
+     if(jsonObject.selectedOption == 'Polar')
+    {
+        var client = "ZDE4ZGMzY2UtMWFiYS00ZGQ2LWJiZWItMGU0MjJjYmI0NDM3OmViOTZjMTVhLTE2OTMtNDg5YS05M2Y3LWZiMGI3MDhjMzRkNw==";
+        var tokenString = "code="+codeParam+"&redirect_uri="+redirect_uri+"&grant_type=authorization_code";
+        getPolarDataAccessToken(tokenString,client);  
+    } 
+    else if(jsonObject.selectedOption == 'GoogleFit')
+    {
+       var client_id = "491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com";
+        var client_secret = "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";
+        var redirect_uri = "https://rhenixhub.github.io/googleFit/thankyou.html";
+        
+        var refreshtokenString = "code="+codeParam+"&client_id="+client_id+"&client_secret="+client_secret+"&redirect_uri="+redirect_uri+"&grant_type=authorization_code";
+      
+        getData(refreshtokenString); 
+    }
 }
         function getData(data) {
                 $.ajax({
@@ -123,6 +133,31 @@ var dataJson = JSON.stringify(data);
                     error: function (jqXHR, status) {
                         console.log(jqXHR);
                         alert('Data Insert failed: ' + status.code);
+                    }
+                });
+            }
+
+        function getPolarDataAccessToken(data, token) {
+                $.ajax({
+                    type: "POST",
+                    url: "https://polarremote.com/v2/oauth2/token",
+                    headers: {
+                              "Authorization": "Basic " + token;
+                                },
+                    data: data,
+                    contentType: "application/x-www-form-urlencoded",
+                    crossDomain: true,
+                    dataType: "json",
+                    success: function (responseData, status, jqXHR) {
+                    console.dir(responseData);
+                        var accessToken = responseData.access_token;
+                       
+                       // document.getElementById('result').textContent = accessToken;
+                        
+                    },
+                    error: function (jqXHR, status) {
+                        console.log(jqXHR);
+                        alert('Data retrieval failed: ' + status.code);
                     }
                 });
             }
