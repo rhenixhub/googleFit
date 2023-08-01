@@ -146,6 +146,8 @@ var dataJson = JSON.stringify(data);
                                 },
                     data: data,
                     contentType: "application/x-www-form-urlencoded",
+                    Accept:'application/json',
+                    Authorization: "Basic " + token,
                     crossDomain: true,
                     dataType: "json",
                     success: function (responseData, status, jqXHR) {
