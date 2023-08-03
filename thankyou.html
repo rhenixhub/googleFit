@@ -66,9 +66,11 @@ function tokenGeneration()
 
      if(jsonObject.selectedOption == 'Polar')
     {
-        var client = "ZDE4ZGMzY2UtMWFiYS00ZGQ2LWJiZWItMGU0MjJjYmI0NDM3OjgzM2ZmZTM1LTY2OWItNDdiNi05N2Y5LThkZDViODU5NDQ0Yw==";
-        var tokenString = "code="+codeParam+"&redirect_uri="+redirect_uri+"&grant_type=authorization_code";
-        getPolarDataAccessToken(tokenString,client);  
+       var clientid = "d787ac7d48eff9d05be43499f3e79049d146fc444f7d60e6ebc0c0d7118bc425";
+var clientsecret="200eecb978b0d454a24821e0c43c21a89136d8d2ab7fbb91e7b546ddf948310a";
+var tokenString = "action=requesttoken&grant_type=authorization_code&client_id="+clientid+"&client_secret="clientsecret+"&code="+codeParam+"&redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html";
+
+getWithingsDataAccessToken(tokenString); 
     } 
     else if(jsonObject.selectedOption == 'GoogleFit')
     {
@@ -137,19 +139,13 @@ var dataJson = JSON.stringify(data);
                 });
             }
 
-        function getPolarDataAccessToken(data, token) {
+       function getWithingsDataAccessToken(data) {
                 $.ajax({
                     type: "POST",
-                    url: "https://polarremote.com/v2/oauth2/token",
-                    headers: {
-                        "Content-Type":"application/x-www-form-urlencoded",
-  "Accept":"application/json",
-                              "Authorization": "Basic " + token
-                                },
+                    url: "https://wbsapi.withings.net/v2/oauth2",
+                    
                     data: data,
                     contentType: "application/x-www-form-urlencoded",
-                    Accept:'application/json',
-                   
                     crossDomain: true,
                     dataType: "json",
                     success: function (responseData, status, jqXHR) {
