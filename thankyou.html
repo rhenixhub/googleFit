@@ -49,35 +49,31 @@ body{
 </style>
     
     <script>
-   
-        
+       
         // retrieve it back from storage 
         var obj = localStorage.getItem("demographicData");
         // use it
          var jsonObject = JSON.parse(obj);
         console.dir(jsonObject);
-        
 
-   
 function tokenGeneration()
 {
-    const urlParams = new URLSearchParams(location.search);
+      const urlParams = new URLSearchParams(location.search);
       var codeParam = urlParams.get('code'); 
 
      if(jsonObject.selectedOption == 'Withings')
     {
        var clientid = "d787ac7d48eff9d05be43499f3e79049d146fc444f7d60e6ebc0c0d7118bc425";
-var clientsecret = "200eecb978b0d454a24821e0c43c21a89136d8d2ab7fbb91e7b546ddf948310a";
-var tokenString = "action=requesttoken&grant_type=authorization_code&client_id="+clientid+"&client_secret="+clientsecret+"&code="+codeParam+"&redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html";
+       var clientsecret = "200eecb978b0d454a24821e0c43c21a89136d8d2ab7fbb91e7b546ddf948310a";
+       var tokenString = "action=requesttoken&grant_type=authorization_code&client_id="+clientid+"&client_secret="+clientsecret+"&code="+codeParam+"&redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html";
 
-getWithingsDataAccessToken(tokenString); 
+        getWithingsDataAccessToken(tokenString); 
     } 
     else if(jsonObject.selectedOption == 'GoogleFit')
     {
-       var client_id = "491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com";
+        var client_id = "491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com";
         var client_secret = "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";
         var redirect_uri = "https://rhenixhub.github.io/googleFit/thankyou.html";
-        
         var refreshtokenString = "code="+codeParam+"&client_id="+client_id+"&client_secret="+client_secret+"&redirect_uri="+redirect_uri+"&grant_type=authorization_code";
       
         getData(refreshtokenString); 
@@ -96,7 +92,7 @@ getWithingsDataAccessToken(tokenString);
                         var accessToken = responseData.access_token;
                        var refreshToken = responseData.refresh_token;
                        // document.getElementById('result').textContent = accessToken;
-                        InsertData(refreshToken);
+                        insertData(refreshToken);
                     },
                     error: function (jqXHR, status) {
                         console.log(jqXHR);
@@ -105,8 +101,7 @@ getWithingsDataAccessToken(tokenString);
                 });
             }
 
-        
-            function InsertData(refreshToken)
+            function insertData(refreshToken)
             {
                 var data = {};
                 data.ID = jsonObject.firstName+jsonObject.lastName;
@@ -119,7 +114,7 @@ getWithingsDataAccessToken(tokenString);
                  data.Timestamp = jsonObject.timestamp;
                 data.WearableType= jsonObject.selectedOption;
                 data.RefreshToken= refreshToken;
-var dataJson = JSON.stringify(data);
+                var dataJson = JSON.stringify(data);
 
                 $.ajax({
                     type: "PUT",
