@@ -79,8 +79,6 @@ form .input-box span.details{
 .user-details .input-box input:valid{
   border-color: #9b59b6;
 }
-
-
 form .user-details .select-box{
   margin-bottom: 15px;
   width: calc(100% / 2 - 20px);
@@ -135,8 +133,6 @@ form .select-box span.details{
    background: #9b59b6;
    border-color: #d9d9d9;
  }
- 
-
  form input[type="radio"]{
    display: none;
  }
@@ -186,9 +182,7 @@ form .user-details .input-box{
   }
 }
      </style>
-
-
-   </head>
+ </head>
 <body>
   <div class="container">
     <div class="title">Registration</div>
@@ -214,7 +208,7 @@ form .user-details .input-box{
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
-        </select>
+          </select>
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
@@ -261,20 +255,15 @@ const phoneInputField = document.querySelector("#phone");
 
         document.getElementById("demographicForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent form submission
-
-            // Get form values
+           // Get form values
             var firstName = document.getElementById("firstName").value;
             var lastName = document.getElementById("lastName").value;
             var age = document.getElementById("age").value;
             var gender = document.getElementById("gender").value;
             var email = document.getElementById("email").value;
              var phone = document.getElementById("phone").value;
-            
             var selectedOption = $("input:radio[name=radioFit]:checked").val()
-
-           
-
-             var timeStamp = new Date().toISOString();
+            var timeStamp = new Date().toISOString();
            
             // Create an object with the form values
             var demographicData = {};
@@ -287,7 +276,6 @@ const phoneInputField = document.querySelector("#phone");
                  demographicData.timestamp = timeStamp;
                 demographicData.selectedOption= selectedOption;
             
-
             // Print the demographic data in JSON format in the console
             console.log(JSON.stringify(demographicData));
 
@@ -297,27 +285,24 @@ const phoneInputField = document.querySelector("#phone");
 
             // Optionally, you can reset the form after submission
            
-if(selectedOption == 'GoogleFit')
-{
-    
-     document.getElementById("demographicForm").reset();
+      if(selectedOption == 'GoogleFit')
+      {
+             document.getElementById("demographicForm").reset();
              window.location.href = "https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html&prompt=consent&response_type=code&client_id=491655752747-gcl0gml5htbqhkmjq1lohjmk5k8qfjn1.apps.googleusercontent.com&scope=https://www.googleapis.com/auth/fitness.activity.read+https://www.googleapis.com/auth/fitness.blood_pressure.read+https://www.googleapis.com/auth/fitness.body.read+https://www.googleapis.com/auth/fitness.oxygen_saturation.read+https://www.googleapis.com/auth/fitness.reproductive_health.read+https://www.googleapis.com/auth/fitness.sleep.read+https://www.googleapis.com/auth/fitness.blood_glucose.read+https://www.googleapis.com/auth/fitness.body_temperature.read+https://www.googleapis.com/auth/fitness.location.read+https://www.googleapis.com/auth/fitness.heart_rate.read+https://www.googleapis.com/auth/fitness.nutrition.read&access_type=offline";
-       
         }
         else if (selectedOption == 'FitBit')
         {
- document.getElementById("demographicForm").reset();
+             document.getElementById("demographicForm").reset();
         }
        else if (selectedOption == 'Withings')
         {
- document.getElementById("demographicForm").reset();
-          window.location.href = "https://account.withings.com/oauth2_user/authorize2?response_type=code&client_id=d787ac7d48eff9d05be43499f3e79049d146fc444f7d60e6ebc0c0d7118bc425&scope=user.info,user.metrics,user.activity&redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html&state=TN";
+             document.getElementById("demographicForm").reset();
+             window.location.href = "https://account.withings.com/oauth2_user/authorize2?response_type=code&client_id=d787ac7d48eff9d05be43499f3e79049d146fc444f7d60e6ebc0c0d7118bc425&scope=user.info,user.metrics,user.activity&redirect_uri=https://rhenixhub.github.io/googleFit/thankyou.html&state=TN";
         }
         else
         {
-alert('Please Select radio button option');
+            alert('Please Select radio button option');
         }
-
         });
     </script>
 </body>
