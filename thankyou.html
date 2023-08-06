@@ -147,6 +147,7 @@ function tokenGeneration()
                     console.dir(responseData);
                         var accessToken = responseData.access_token;
                         var refreshToken = responseData.refresh_token;
+                        console.dir(refreshToken);
                         insertData(refreshToken);
                     },
                     error: function (jqXHR, status) {
