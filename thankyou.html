@@ -145,10 +145,10 @@ function tokenGeneration()
                     dataType: "json",
                     success: function (responseData, status, jqXHR) {
                     console.dir(responseData);
-
+                    console.dir(responseData['refresh_token']);
                         var refresh_Token = responseData.refresh_token;
                         console.dir(refresh_Token);
-                        insertData(refresh_Token);
+                     
                     },
                     error: function (jqXHR, status) {
                         console.log(jqXHR);
