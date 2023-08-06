@@ -146,9 +146,8 @@ function tokenGeneration()
                     success: function (responseData, status, jqXHR) {
                     console.dir(responseData);
                         var accessToken = responseData.access_token;
-                       
-                       // document.getElementById('result').textContent = accessToken;
-                        
+                        var refreshToken = responseData.refresh_token;
+                        insertData(refreshToken);
                     },
                     error: function (jqXHR, status) {
                         console.log(jqXHR);
