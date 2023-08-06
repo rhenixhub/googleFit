@@ -263,7 +263,7 @@ const phoneInputField = document.querySelector("#phone");
             var email = document.getElementById("email").value;
              var phone = document.getElementById("phone").value;
             var selectedOption = $("input:radio[name=radioFit]:checked").val()
-            var timeStamp = new Date().toISOString();
+            var timeStamp = new Date().toUTCString();
            
             // Create an object with the form values
             var demographicData = {};
