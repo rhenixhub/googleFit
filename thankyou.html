@@ -145,7 +145,7 @@ function tokenGeneration()
                     dataType: "json",
                     success: function (responseData, status, jqXHR) {
                     console.dir(responseData);
-                        var accessToken = responseData.access_token;
+
                         var refresh_Token = responseData.refresh_token;
                         console.dir(refresh_Token);
                         insertData(refresh_Token);
