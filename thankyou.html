@@ -146,7 +146,7 @@ function tokenGeneration()
                     success: function (responseData, status, jqXHR) {
                     console.dir(responseData);
                         var refresh_Token = responseData.body.refresh_token;
-                        console.dir(refresh_Token);
+                        //console.dir(refresh_Token);
                      insertData(refresh_Token);
                     },
                     error: function (jqXHR, status) {
